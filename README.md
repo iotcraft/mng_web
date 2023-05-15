@@ -1,6 +1,6 @@
 # Autoři
 
- Samuel Kala
- Petr Bořánek
- Patrik Volf
- David Petrášek
+ Samuel Kala |
+ Petr Bořánek |
+ Patrik Volf |
+ David Petrášek |
