@@ -10,7 +10,7 @@
 	width: 100%;
 	top: 0;
 	left: 0;
-	background: black
+	background: rgba(0, 0, 0, 0.500)
 }
 .user-label {
 	position: fixed;
@@ -75,7 +75,7 @@
 	left: 0;
 	height: 100%;
 	width: 150px; /* Adjust the width as needed */
-	background-color: black;
+	background-color: rgba(0, 0, 0, 0.500);
 	color: white;
 	padding: 20px;
 	box-sizing: border-box;
