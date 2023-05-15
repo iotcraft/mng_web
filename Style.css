@@ -1,29 +1,60 @@
 .h1{
     text-decoration: dashed;
 }
-
+#user{
+	left:5Opx;
+}
 .navbar{
 	position: fixed;
 	height: 80px;
 	width: 100%;
 	top: 0;
 	left: 0;
-	background: rgba(0,0,0,0.4);
+	background: black
 }
-.navbar .logo{
-	width: 140px;
-	height: auto;
-	padding: 20px 100px;
+.user-label {
+	position: fixed;
+	top: 10px;
+	left: 10px;
+	font-size: 16px;
+	color: white;
+	cursor: pointer;
 }
+
+/* Styling for the popup menu */
+.popup-menu {
+	position: absolute;
+	top: 30px;
+	left: 0;
+	width: 200px;
+	background-color: #333;
+	color: white;
+	padding: 10px;
+	display: none;
+}
+
+/* Styling for the popup menu items */
+.menu-item {
+	cursor: pointer;
+	margin-bottom: 5px;
+}
+
+/* Show the popup menu when the "User" label is clicked */
+.user-label:hover + .popup-menu,
+.popup-menu:hover {
+	display: block;
+}
+
 .navbar ul{
 	float: right;
 	margin-right: 20px;
 }
 .navbar ul li{
 	list-style: none;
-	margin: 0 8px;
+	margin: 0 20px;
 	display: inline-block;
 	line-height: 80px;
+	
 }
 .navbar ul li a{
 	font-size: 20px;
@@ -35,6 +66,17 @@
 }
 .navbar ul li a.active,
 .navbar ul li a:hover{
-	background: red;
+	background: rgb(43, 206, 51);
 	border-radius: 2px;
 }
+.black-bar {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 150px; /* Adjust the width as needed */
+	background-color: black;
+	color: white;
+	padding: 20px;
+	box-sizing: border-box;
+  }
