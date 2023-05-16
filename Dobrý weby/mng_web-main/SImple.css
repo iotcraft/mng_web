@@ -29,7 +29,7 @@
 .user-label {
 	
 	position: fixed;
-	top: 30px;
+	top: 40px;
 	left: 20px;
 	font-size: 16px;
 	color: white;
@@ -39,9 +39,9 @@
 /* Styling for the popup menu */
 .popup-menu {
 	position: absolute;
-	top: 50px;
+	top: 100px;
 	left: 0;
-	width: 200px;
+	width: 130px;
 	background-color: #272727;
 	color: white;
 	padding: 10px;
@@ -86,4 +86,7 @@
 .navbar ul li a:hover{
 	background: #BCFD4C;
 	border-radius: 50px;
+}
+.avatar{
+	border-radius: 50%;
 }
