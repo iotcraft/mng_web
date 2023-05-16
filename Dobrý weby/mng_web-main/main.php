@@ -44,9 +44,10 @@
   </div>
   <?php
   session_start();
+  @include 'config.php';
   
   // Check if user is logged in
-  $loggedIn = isset($_SESSION['user_id']);
+  $loggedIn = isset($_SESSION['name']);
   
   // Function to display the popup menu
   function displayPopupMenu($loggedIn)
@@ -68,8 +69,8 @@
       }
   }
   
-  // Example usage:
-  displayPopupMenu($loggedIn);
+  // Example usage:  displayPopupMenu($loggedIn);
+
   ?>
 
 </div>
