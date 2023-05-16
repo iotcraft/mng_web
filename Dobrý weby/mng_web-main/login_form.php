@@ -30,6 +30,12 @@ if(isset($_POST['submit'])){
          header('location:user_page.php');
 
       }
+      // URL of the web page you want to redirect to
+      $redirectUrl = 'file:///C:/Users/praxe/Desktop/mng_web/Dobrý%20weby/mng_web-main/Začínáme.html';
+
+      // Perform the redirect
+      header('Location: ' . $redirectUrl);
+      exit();
      
    }else{
       $error[] = 'incorrect email or password!';
