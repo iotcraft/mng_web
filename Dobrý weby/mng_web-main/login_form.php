@@ -19,25 +19,23 @@ if(isset($_POST['submit'])){
 
       $row = mysqli_fetch_array($result);
 
-      if($row['user_type'] == 'admin'){
 
-         $_SESSION['admin_name'] = $row['name'];
-         header('location:admin_page.php');
 
-      }elseif($row['user_type'] == 'user'){
+      if($row['user_type'] == 'user'){
 
          $_SESSION['user_name'] = $row['name'];
-         header('location:user_page.php');
-
       }
-      // URL of the web page you want to redirect to
-      $redirectUrl = 'file:///C:/Users/praxe/Desktop/mng_web/Dobrý%20weby/mng_web-main/Začínáme.html';
-
-      // Perform the redirect
-      header('Location: ' . $redirectUrl);
-      exit();
      
-   }else{
+         // URL of the web page you want to redirect to
+         $redirectUrl = '';
+
+         // Perform the redirect
+         header('Location:začínáme.html' . $redirectUrl);
+         exit();
+   }
+
+
+   else{
       $error[] = 'incorrect email or password!';
    }
 
