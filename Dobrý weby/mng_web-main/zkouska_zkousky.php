@@ -24,7 +24,7 @@
       <div class="sub-menu-wrap" id="subMenu">
         <div class="sub-menu">
         <hr>
-   <a href="#" class="menu-item" id="profil">
+   <a href="settings.php" class="menu-item" id="profil">
       <p>Settings</p>
     </a>
     <hr>
@@ -32,7 +32,7 @@
       <p>Profile</p>
     </a>
     <hr>
-    <a href="login_form.php" class="menu-item" id="logout">
+    <a href="zkouska_zkousky_guest.php" class="menu-item" id="logout">
       <p>Logout</p>
     </a>
     <hr>
