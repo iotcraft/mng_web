@@ -22,7 +22,7 @@
       <div class="user-label">User</div>
       <!-- Popup menu -->
       <div class="popup-menu">
-        <div class="menu-item">Profile</div>
+        <div class="menu-item"><a href="settings.html">Profile</div>
         <div class="menu-item"><a href="register_form.php">Register</a> 
       </div>
         <div class="menu-item"><a href="login_form.php">Login</a></div>
@@ -30,7 +30,7 @@
         <ul>
         
           <li><a href="Simple.html">Simple</a></li>
-          <li><a href="Začínáme.html">Blockly</a></li>
+          <li><a href="main.php">Blockly</a></li>
           <li><a href="#">Lua</a><bgg/li>
         
         </ul>
