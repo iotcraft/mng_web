@@ -164,6 +164,30 @@
 							<button class="btn btn-light">Cancel</button>
 						</div>
 					</div>
+					<div class="tab-pane fade" id="back" role="tabpanel" aria-labelledby="back-tab">
+						<h3 class="mb-4">Security Settings</h3>
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								  	<label>Login</label>
+								  	<input type="text" class="form-control">
+								</div>
+							</div>
+						</div>
+						<div>
+							<button class="btn btn-primary"><a href="zkouska_zkousky.php"></a>back</button>
+							<button class="btn btn-light">Cancel</button>
+						</div>
+					</div>
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" value="" id="notification3" >
+							</div>
+						</div>
+						<div>
+							<button class="btn btn-primary"><a href="zkouska_zkousky.php">back</a></button>
+							
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
