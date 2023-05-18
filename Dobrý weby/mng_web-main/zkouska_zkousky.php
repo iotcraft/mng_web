@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="zkoska_zkousky.css">
-
+    <link rel="stylesheet" href="profilovka.css">
     <title>IoT Craft</title>
 </head>
 <body>
-  <div class >
+
+<div class >
     <header></header>
   </div>
-  
+    
   <div class="wrapper">
     <!-- Black bar container -->
   <div class="black-bar">
@@ -20,7 +21,14 @@
     
     <nav class="navbar">
       <!-- User label -->
-      <div class="user-label"><img src="pf.jpg" alt="Avatar" style="width:50px" class="avatar" onclick="toggleMenu()"></div>
+<div class="profile-pic-div">
+    <img src="image.jpg" id="photo">
+    <input type="file" id="file">
+    <label for="file" id="uploadBtn">Choose Photo</label>
+</div>
+      <div class="user-label">
+        
+        <h1 id="user" onclick="toggleMenu()">User</h1></div>
       <div class="sub-menu-wrap" id="subMenu">
         <div class="sub-menu">
         <hr>
@@ -63,5 +71,6 @@ let subMenu = document.getElementById("subMenu");
  }
  
 </script>
+<script src="profilovka.js"></script>
 </body>
 </html>
