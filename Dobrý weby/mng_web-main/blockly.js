@@ -58,7 +58,7 @@ var workspace = Blockly.inject('blocklyDiv', {
 
 // Generate JavaScript code from blocks
 function generateCode() {
-  var code = Blockly.JavaScript.workspaceToCode(workspace);
+  var code = Blockly.Lua.workspaceToCode(workspace);
   return code;
 }
 
