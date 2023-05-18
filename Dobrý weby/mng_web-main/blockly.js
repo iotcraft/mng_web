@@ -64,3 +64,8 @@ function generateCode() {
 
 // Button click event handler
 document.getElementById('generateCodeButton').addEventListener('click', generateCode);
+
+// Run the generated Lua code
+function runCode() {
+  var code = generateCode();
+  document.getElementById('codeArea').textContent = code;
