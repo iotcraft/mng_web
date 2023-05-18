@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="profilovka.css">
     <link rel="stylesheet" href="blockly.css">
     <script src="https://unpkg.com/blockly/blockly.min.js"></script>
-   <script src="https://unpkg.com/blockly/blocks/logic.js"></script>
+    <script src="https://unpkg.com/blockly/blocks/logic.js"></script>
     <script src="https://unpkg.com/blockly/blocks/loops.js"></script>
     <script src="https://unpkg.com/blockly/blocks/math.js"></script>
     <script src="https://unpkg.com/blockly/blocks/text.js"></script>
