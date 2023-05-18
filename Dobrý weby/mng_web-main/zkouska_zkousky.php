@@ -76,7 +76,7 @@
   <div id="blocklyDiv"></div>
   
   <pre id="codeArea"></pre>
-  <button id="generateCodeButton">Generate Code</button>
+  <button onclick=" generateCode()" id="generateCodeButton">Generate Code</button>
 
 
 </div>
