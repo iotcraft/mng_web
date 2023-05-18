@@ -76,7 +76,7 @@
   <div id="blocklyDiv"></div>
   
   <pre id="codeArea"></pre>
-  <button id="generateCodeButton" onclick="runCode()">Generate Code</button>
+  <button id="generateCodeButton">Generate Lua Code</button>
 
 </div>
 <script>
