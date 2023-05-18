@@ -22,7 +22,7 @@
     <nav class="navbar">
       <!-- User label -->
 <div class="profile-pic-div">
-    <img src="image.jpg" id="photo">
+    <img src="pf.jpg" id="photo">
     <input type="file" id="file">
     <label for="file" id="uploadBtn">Choose Photo</label>
 </div>
