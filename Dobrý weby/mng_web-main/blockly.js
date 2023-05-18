@@ -69,3 +69,4 @@ document.getElementById('generateCodeButton').addEventListener('click', generate
 function runCode() {
   var code = generateCode();
   document.getElementById('codeArea').textContent = code;
+}
