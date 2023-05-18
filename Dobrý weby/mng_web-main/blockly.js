@@ -56,20 +56,12 @@ var workspace = Blockly.inject('blocklyDiv', {
     </xml>`
   });
   
- // Generate Lua code and display in the code area
-function generateCode() {
-  var code = Blockly.Lua.workspaceToCode(workspace);
-  document.getElementById('codeArea').textContent = code;
-}
-
-// Button click event handler
-document.getElementById('generateCodeButton').addEventListener('click', generateCode);
-  
-  // Run the generated JavaScript code
-  function runCode() {
-    var code = generateCode();
-    document.getElementById('codeArea').textContent = code;
-    eval(code);
+   // Generate Lua code and replace blocks in workspace
+   function generateCode() {
+    var code = Blockly.Lua.workspaceToCode(workspace);
+    Blockly.Xml.clearWorkspaceAndLoadFromXml(Blockly.Xml.textToDom('<xml xmlns="https://developers.google.com/blockly/xml">' + code + '</xml>'), workspace);
   }
- 
+
+  // Button click event handler
+  document.getElementById('generateCodeButton').addEventListener('click', generateCode);
   
