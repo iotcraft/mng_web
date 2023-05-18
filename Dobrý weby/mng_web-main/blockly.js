@@ -56,11 +56,14 @@ var workspace = Blockly.inject('blocklyDiv', {
     </xml>`
   });
   
-  // Generate JavaScript code from blocks
-  function generateCode() {
-    var code = Blockly.JavaScript.workspaceToCode(workspace);
-    return code;
-  }
+ // Generate Lua code and display in the code area
+function generateCode() {
+  var code = Blockly.Lua.workspaceToCode(workspace);
+  document.getElementById('codeArea').textContent = code;
+}
+
+// Button click event handler
+document.getElementById('generateCodeButton').addEventListener('click', generateCode);
   
   // Run the generated JavaScript code
   function runCode() {
@@ -68,5 +71,5 @@ var workspace = Blockly.inject('blocklyDiv', {
     document.getElementById('codeArea').textContent = code;
     eval(code);
   }
-  document.getElementById('generateCodeButton').addEventListener('click', generateCode);
+ 
   
