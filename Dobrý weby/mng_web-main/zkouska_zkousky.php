@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="zkoska_zkousky.css">
     <link rel="stylesheet" href="profilovka.css">
+    <link rel="stylesheet" href="blockly.css">
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+   <script src="https://unpkg.com/blockly/blocks/logic.js"></script>
+    <script src="https://unpkg.com/blockly/blocks/loops.js"></script>
+    <script src="https://unpkg.com/blockly/blocks/math.js"></script>
+    <script src="https://unpkg.com/blockly/blocks/text.js"></script>
+    <script src="https://unpkg.com/blockly/blocks/lists.js"></script>
+    <script src="https://unpkg.com/blockly/blocks/colour.js"></script>
+    <script src="https://unpkg.com/blockly/blocks/variables.js"></script>
+    <script src="https://unpkg.com/blockly/blocks/procedures.js"></script>
+    <link rel="icon" href="https://media.discordapp.net/attachments/693767926980804649/1108674158763716658/pato.png">
     <title>IoT Craft</title>
 </head>
 <body>
@@ -61,7 +72,10 @@
   
   </div>
   </div>
-
+  <div id="blocklyDiv"></div>
+  
+  <pre id="codeArea"></pre>
+  <button id="generateCodeButton" onclick="runCode()">Generate Code</button>
 
 </div>
 <script>
@@ -72,5 +86,6 @@ let subMenu = document.getElementById("subMenu");
  
 </script>
 <script src="profilovka.js"></script>
+<script src="blockly.js"></script>
 </body>
 </html>
