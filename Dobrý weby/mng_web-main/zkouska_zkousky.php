@@ -23,7 +23,9 @@
 <body>
 
 <div class >
-    <header></header>
+    <header>
+
+    </header>
   </div>
     
   <div class="wrapper">
@@ -44,7 +46,7 @@
       <div class="sub-menu-wrap" id="subMenu">
         <div class="sub-menu">
         <hr>
-   <a href="settings.php" class="menu-item" id="profil">
+   <a href="update_profile.php" class="menu-item" id="profil">
       <p>Settings</p>
     </a>
     <hr>
@@ -80,6 +82,7 @@
 
 
 </div>
+
 <script>
 let subMenu = document.getElementById("subMenu");
  function toggleMenu(){
