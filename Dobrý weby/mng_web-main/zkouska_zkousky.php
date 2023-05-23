@@ -17,6 +17,7 @@
     <script src="https://unpkg.com/blockly/blocks/variables.js"></script>
     <script src="https://unpkg.com/blockly/blocks/procedures.js"></script>
     <script src="https://unpkg.com/blockly/generators/lua.js"></script>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
     <link rel="icon" href="https://media.discordapp.net/attachments/693767926980804649/1108674158763716658/pato.png">
     <title>IoT Craft</title>
 </head>
@@ -79,6 +80,8 @@
   
   <pre id="codeArea"></pre>
   <button onclick="runCode()" id="generateCodeButton">Generate Code</button>
+
+  <button id="sendCodeButton">Send Code via MQTT</button>
 
 
 </div>
