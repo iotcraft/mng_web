@@ -56,35 +56,11 @@ var workspace = Blockly.inject('blocklyDiv', {
   </xml>`
 });
 
- // Generate Lua code and display in the code area
- function generateCode() {
-  var code = Blockly.Lua.workspaceToCode(workspace);
-  document.getElementById('codeArea').textContent = code;
+// Generate JavaScript code from blocks
+function generateCode() {
+  var code = Blockly.JavaScript.workspaceToCode(workspace);
+  return code;
 }
-
-// Send code via MQTT
-function sendCode() {
-  var code = document.getElementById('codeArea').textContent;
-
-  // Configure MQTT broker connection
-  var brokerUrl = 'mqtt://mqtt.example.com';
-  var clientId = 'blocklyClient';
-  var topic = 'blockly/code';
-
-  // Connect to MQTT broker
-  var client = mqtt.connect(brokerUrl, { clientId: clientId });
-
-  // Publish code to MQTT topic
-  client.on('connect', function() {
-    client.publish(topic, code);
-    client.end();
-    alert('Code sent successfully!');
-  });
-}
-
-// Button click event handlers
-document.getElementById('generateCodeButton').addEventListener('click', generateCode);
-document.getElementById('sendCodeButton').addEventListener('click', sendCode);
 
 // Run the generated JavaScript code
 function runCode() {

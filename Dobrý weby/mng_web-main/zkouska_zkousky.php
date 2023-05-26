@@ -1,3 +1,11 @@
+<?php
+
+include 'configy.php';
+session_start();
+$user_id = $_SESSION['user_id'];
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +15,7 @@
     <link rel="stylesheet" href="zkoska_zkousky.css">
     <link rel="stylesheet" href="profilovka.css">
     <link rel="stylesheet" href="blockly.css">
+
     <script src="https://unpkg.com/blockly/blockly.min.js"></script>
     <script src="https://unpkg.com/blockly/blocks/logic.js"></script>
     <script src="https://unpkg.com/blockly/blocks/loops.js"></script>
@@ -17,7 +26,6 @@
     <script src="https://unpkg.com/blockly/blocks/variables.js"></script>
     <script src="https://unpkg.com/blockly/blocks/procedures.js"></script>
     <script src="https://unpkg.com/blockly/generators/lua.js"></script>
-    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
     <link rel="icon" href="https://media.discordapp.net/attachments/693767926980804649/1108674158763716658/pato.png">
     <title>IoT Craft</title>
 </head>
@@ -37,13 +45,28 @@
     <nav class="navbar">
       <!-- User label -->
 <div class="profile-pic-div">
-    <img src="pf.jpg" id="photo">
-    <input type="file" id="file">
-    <label for="file" id="uploadBtn">Choose Photo</label>
+  
+    <div class="container">
+      <?php
+         $select = mysqli_query($conn, "SELECT * FROM `user_form` WHERE id = '$user_id'") or die('query failed');
+         if(mysqli_num_rows($select) > 0){
+            $fetch = mysqli_fetch_assoc($select);
+         }
+         if($fetch['image'] == ''){
+            echo '<img src="images/default-avatar.png">';
+         }else{
+            echo '<img src="uploaded_img/'.$fetch['image'].'" id="ff">';
+         }
+      ?>
+      </div>
+
 </div>
       <div class="user-label">
         
-        <h1 id="user" onclick="toggleMenu()">User</h1></div>
+        <h1 id="user" onclick="toggleMenu()"><?php echo $fetch['name']; ?></h1>
+
+      </div>
+        
       <div class="sub-menu-wrap" id="subMenu">
         <div class="sub-menu">
         <hr>
@@ -81,10 +104,12 @@
   <pre id="codeArea"></pre>
   <button onclick="runCode()" id="generateCodeButton">Generate Code</button>
 
-  <button id="sendCodeButton">Send Code via MQTT</button>
-
 
 </div>
+
+
+
+
 
 <script>
 let subMenu = document.getElementById("subMenu");
@@ -97,3 +122,9 @@ let subMenu = document.getElementById("subMenu");
 <script src="blockly.js"></script>
 </body>
 </html>
+
+
+
+
+
+   

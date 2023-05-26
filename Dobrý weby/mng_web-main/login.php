@@ -13,9 +13,9 @@ if(isset($_POST['submit'])){
    if(mysqli_num_rows($select) > 0){
       $row = mysqli_fetch_assoc($select);
       $_SESSION['user_id'] = $row['id'];
-      header('location:zkouska_zkousky.php');
+      header('location:main_boot.php');
    }else{
-      $message[] = 'incorrect email or password!';
+      $message[] = 'špatný email nebo heslo';
    }
 
 }
@@ -47,10 +47,11 @@ if(isset($_POST['submit'])){
          }
       }
       ?>
-      <input type="email" name="email" placeholder="enter email" class="box" required>
-      <input type="password" name="password" placeholder="enter password" class="box" required>
-      <input type="submit" name="submit" value="login now" class="btn">
-      <p>don't have an account? <a href="register.php">regiser now</a></p>
+      <input type="email" name="email" placeholder="zadej email" class="box" required>
+      <input type="password" name="password" placeholder="zadej heslo" class="box" required>
+      <input type="submit" name="submit" value="přihlaš se" class="btn">
+      <p>Nemáš ještě účet? <a href="register.php">zaregistruj se zde</a></p>
+      <p>nechceš se přihlašovat? <a href="main_boot_guest.php">Pokračovat jako guest</a></p>
    </form>
 
 </div>

@@ -24,15 +24,11 @@
       <div class="sub-menu-wrap" id="subMenu">
         <div class="sub-menu">
         <hr>
-   <a href="#" class="menu-item" id="profil">
-      <p>Settings</p>
-    </a>
-    <hr>
-    <a href="register_form.php" class="menu-item" >
+    <a href="register.php" class="menu-item" >
       <p>Register</p>
     </a>
     <hr>
-    <a href="login_form.php" class="menu-item" id="logout">
+    <a href="login.php" class="menu-item" id="logout">
       <p>Login</p>
     </a>
     <hr>

@@ -16,21 +16,21 @@ if(isset($_POST['submit'])){
    $select = mysqli_query($conn, "SELECT * FROM `user_form` WHERE email = '$email' AND password = '$pass'") or die('query failed');
 
    if(mysqli_num_rows($select) > 0){
-      $message[] = 'user already exist'; 
+      $message[] = 'uživatel už existuje'; 
    }else{
       if($pass != $cpass){
-         $message[] = 'confirm password not matched!';
+         $message[] = 'hesla se neschodují';
       }elseif($image_size > 2000000){
-         $message[] = 'image size is too large!';
+         $message[] = 'obrázek je příliš velký';
       }else{
          $insert = mysqli_query($conn, "INSERT INTO `user_form`(name, email, password, image) VALUES('$name', '$email', '$pass', '$image')") or die('query failed');
 
          if($insert){
             move_uploaded_file($image_tmp_name, $image_folder);
-            $message[] = 'registered successfully!';
+            $message[] = 'registrace úsěšná';
             header('location:login.php');
          }else{
-            $message[] = 'registeration failed!';
+            $message[] = 'registrace neúspěšná';
          }
       }
    }
@@ -64,13 +64,14 @@ if(isset($_POST['submit'])){
          }
       }
       ?>
-      <input type="text" name="name" placeholder="enter username" class="box" required>
-      <input type="email" name="email" placeholder="enter email" class="box" required>
-      <input type="password" name="password" placeholder="enter password" class="box" required>
-      <input type="password" name="cpassword" placeholder="confirm password" class="box" required>
+      <input type="text" name="name" placeholder="zadejte uživatelské jméno" class="box" required>
+      <input type="email" name="email" placeholder="zadej email" class="box" required>
+      <input type="password" name="password" placeholder="zadej heslo" class="box" required>
+      <input type="password" name="cpassword" placeholder="potvrď heslo" class="box" required>
       <input type="file" name="image" class="box" accept="image/jpg, image/jpeg, image/png">
-      <input type="submit" name="submit" value="register now" class="btn">
-      <p>already have an account? <a href="login.php">login now</a></p>
+      <input type="submit" name="submit" value="zaregistruj se" class="btn">
+      <p>už máš účet? <a href="login.php">login now</a></p>
+      <p>nechceš se přihlašovat? <a href="main_boot_guest.php">Pokračovat jako guest</a></p>
    </form>
 
 </div>

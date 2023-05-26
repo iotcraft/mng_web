@@ -16,7 +16,7 @@
 	font-size: 20px;
 	font-family: 'Poppins', sans-serif;
 	position: fixed;
-	height: 100px;
+	height: 80px;
 	width: 100%;
 	top: 0;
 	left: 0;
@@ -24,8 +24,8 @@
 }
 .user-label {
 	position: fixed;
-	top: 30px;
-	left: 75px;
+	top: 20px;
+	left: 15px;
 	font-size: 16px;
 	color: white;
 	cursor: pointer;
@@ -93,4 +93,9 @@ transition: max-height 0.5s;
 	margin-left:75px;
 	align-items: left;
 	
+}
+
+#ff{
+	height: 50px;
+	width: 50px;
 }

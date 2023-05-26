@@ -18,12 +18,12 @@ if(isset($_POST['update_profile'])){
 
    if(!empty($update_pass) || !empty($new_pass) || !empty($confirm_pass)){
       if($update_pass != $old_pass){
-         $message[] = 'old password not matched!';
+         $message[] = 'staré heslo není správné';
       }elseif($new_pass != $confirm_pass){
-         $message[] = 'confirm password not matched!';
+         $message[] = 'hesla se neschodují';
       }else{
          mysqli_query($conn, "UPDATE `user_form` SET password = '$confirm_pass' WHERE id = '$user_id'") or die('query failed');
-         $message[] = 'password updated successfully!';
+         $message[] = 'heslo změněno úspěšně';
       }
    }
 
@@ -34,13 +34,13 @@ if(isset($_POST['update_profile'])){
 
    if(!empty($update_image)){
       if($update_image_size > 2000000){
-         $message[] = 'image is too large';
+         $message[] = 'obrázek je příliš velký';
       }else{
          $image_update_query = mysqli_query($conn, "UPDATE `user_form` SET image = '$update_image' WHERE id = '$user_id'") or die('query failed');
          if($image_update_query){
             move_uploaded_file($update_image_tmp_name, $update_image_folder);
          }
-         $message[] = 'image updated succssfully!';
+         $message[] = 'ovrázek nahrán úspěšně';
       }
    }
 
@@ -78,6 +78,7 @@ if(isset($_POST['update_profile'])){
          }else{
             echo '<img src="uploaded_img/'.$fetch['image'].'">';
          }
+         
          if(isset($message)){
             foreach($message as $message){
                echo '<div class="message">'.$message.'</div>';
@@ -86,25 +87,25 @@ if(isset($_POST['update_profile'])){
       ?>
       <div class="flex">
          <div class="inputBox">
-            <span>username :</span>
+            <span>jméno :</span>
             <input type="text" name="update_name" value="<?php echo $fetch['name']; ?>" class="box">
-            <span>your email :</span>
+            <span>tvůj email :</span>
             <input type="email" name="update_email" value="<?php echo $fetch['email']; ?>" class="box">
-            <span>update your pic :</span>
+            <span>aktualizuj obrázek :</span>
             <input type="file" name="update_image" accept="image/jpg, image/jpeg, image/png" class="box">
          </div>
          <div class="inputBox">
             <input type="hidden" name="old_pass" value="<?php echo $fetch['password']; ?>">
-            <span>old password :</span>
-            <input type="password" name="update_pass" placeholder="enter previous password" class="box">
-            <span>new password :</span>
-            <input type="password" name="new_pass" placeholder="enter new password" class="box">
-            <span>confirm password :</span>
-            <input type="password" name="confirm_pass" placeholder="confirm new password" class="box">
+            <span>staré heslo :</span>
+            <input type="password" name="update_pass" placeholder="zadej staré heslo" class="box">
+            <span>nové heslo :</span>
+            <input type="password" name="new_pass" placeholder="zadej nové heslo" class="box">
+            <span>potvrď nové heslo :</span>
+            <input type="password" name="confirm_pass" placeholder="potvrď nové heslo" class="box">
          </div>
       </div>
-      <input type="submit" value="update profile" name="update_profile" class="btn">
-      <a href="zkouska_zkousky.php" class="delete-btn">go back</a>
+      <input type="submit" value="aktualizuj profil" name="update_profile" class="btn">
+      <a href="main_boot.php" class="delete-btn">go back</a>
    </form>
 
 </div>
