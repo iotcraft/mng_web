@@ -14,7 +14,21 @@ $user_id = $_SESSION['user_id'];
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Navbar Example</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="blockly.css">
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <script src="https://unpkg.com/blockly/blocks/logic.js"></script>
+    <script src="https://unpkg.com/blockly/blocks/loops.js"></script>
+    <script src="https://unpkg.com/blockly/blocks/math.js"></script>
+    <script src="https://unpkg.com/blockly/blocks/text.js"></script>
+    <script src="https://unpkg.com/blockly/blocks/lists.js"></script>
+    <script src="https://unpkg.com/blockly/blocks/colour.js"></script>
+    <script src="https://unpkg.com/blockly/blocks/variables.js"></script>
+    <script src="https://unpkg.com/blockly/blocks/procedures.js"></script>
+    <script src="https://unpkg.com/blockly/generators/lua.js"></script>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    
+    
   <style>
     .site {
       position: absolute;
@@ -102,8 +116,63 @@ $user_id = $_SESSION['user_id'];
       width: 45px;
       border-radius: 50%;
     }
+    
+    .editor {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
 
+        .editor textarea {
+            width: 100%;
+            height: calc(100% - 40px);
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #25282c;
+            color: white;
+            resize: none;
+        }
 
+        .editor textarea:focus {
+            border: 3.5px solid #0024d6;
+        }
+        
+        .editor #lua-code {
+            grid-column: 2;
+        }
+
+        .output {
+            background-color: #fffdfd;
+            color: black;
+            overflow: auto;
+        }
+
+        #output {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .container-lua {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr;
+            height: 100vh;
+        }
+
+        #html-code {
+          height: 200px;
+
+        }
+        #lua-code{
+          height: 200px;
+
+        }
   </style>
 </head>
 
@@ -166,16 +235,31 @@ $user_id = $_SESSION['user_id'];
   </div>
 
   <div id="site2" class="site site-hidden">
-    <div class="container">
-      <h1>Site 2</h1>
-      <p>This is the content of Site 2.</p>
+  <div class="container">
+        
+        <div id="blocklyDiv"></div>
+  
+        <pre id="codeArea"></pre>
+        <button onclick="runCode()" id="generateCodeButton">Generate Code</button>
+
+        <button id="sendCodeButton">Send Code via MQTT</button>
+
+
+      </div>
     </div>
   </div>
 
   <div id="site3" class="site site-hidden">
-    <div class="container">
-      <h1>Site 3</h1>
-      <p>This is the content of Site 3.</p>
+    <div class="container-lua">
+    <div class="editor">
+            <textarea id="html-code" placeholder="Write HTML code here ..."></textarea>
+            <textarea id="lua-code" placeholder="Write Lua code here ..."></textarea>
+            <textarea id="js-code" placeholder="Write JavaScript code here ..."></textarea>
+            <div class="output">
+                <h2>Output</h2>
+                <iframe id="output"></iframe>
+            </div>
+        </div>
     </div>
   </div>
   
@@ -184,6 +268,7 @@ $user_id = $_SESSION['user_id'];
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.0.js" ></script>
+  <script src="blockly.js"></script>
   <script>
     $(document).ready(function() {
       $('.nav-link').click(function(e) {
@@ -203,6 +288,24 @@ $user_id = $_SESSION['user_id'];
         $(this).addClass('active');
       })
     })
+
+    function run() {
+            let htmlCode = document.querySelector("#html-code").value;
+            let luaCode = document.querySelector("#lua-code").value;
+            let jsCode = document.querySelector("#js-code").value;
+            let output = document.querySelector("#output");
+
+            output.contentDocument.body.innerHTML = htmlCode;
+            output.contentWindow.eval(jsCode);
+
+            // Execute Lua code using Lua.js
+            var L = Lua();
+            L.execute(luaCode);
+        }
+
+        document.querySelector("#html-code").addEventListener("keyup", run);
+        document.querySelector("#lua-code").addEventListener("keyup", run);
+        document.querySelector("#js-code").addEventListener("keyup", run);
   </script>
 </body>
 

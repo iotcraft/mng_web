@@ -108,7 +108,63 @@
       width: 45px;
       border-radius: 50%;
     }
+    
+    .editor {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
 
+        .editor textarea {
+            width: 100%;
+            height: calc(100% - 40px);
+            border: none;
+            outline: none;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #25282c;
+            color: white;
+            resize: none;
+        }
+
+        .editor textarea:focus {
+            border: 3.5px solid #0024d6;
+        }
+        
+        .editor #lua-code {
+            grid-column: 2;
+        }
+
+        .output {
+            background-color: #fffdfd;
+            color: black;
+            overflow: auto;
+        }
+
+        #output {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .container-lua {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: auto 1fr;
+            height: 100vh;
+        }
+
+        #html-code {
+          height: 200px;
+
+        }
+        #lua-code{
+          height: 200px;
+
+        }
 
   </style>
 </head>
@@ -173,9 +229,16 @@
   </div>
 
   <div id="site3" class="site site-hidden">
-    <div class="container">
-      <h1>Site 3</h1>
-      <p>This is the content of Site 3.</p>
+  <div class="container-lua">
+    <div class="editor">
+            <textarea id="html-code" placeholder="Write HTML code here ..."></textarea>
+            <textarea id="lua-code" placeholder="Write Lua code here ..."></textarea>
+            <textarea id="js-code" placeholder="Write JavaScript code here ..."></textarea>
+            <div class="output">
+                <h2>Output</h2>
+                <iframe id="output"></iframe>
+            </div>
+        </div>
     </div>
   </div>
   
@@ -203,6 +266,25 @@
         $(this).addClass('active');
       })
     })
+    
+    function run() {
+            let htmlCode = document.querySelector("#html-code").value;
+            let luaCode = document.querySelector("#lua-code").value;
+            let jsCode = document.querySelector("#js-code").value;
+            let output = document.querySelector("#output");
+
+            output.contentDocument.body.innerHTML = htmlCode;
+            output.contentWindow.eval(jsCode);
+
+            // Execute Lua code using Lua.js
+            var L = Lua();
+            L.execute(luaCode);
+        }
+
+        document.querySelector("#html-code").addEventListener("keyup", run);
+        document.querySelector("#lua-code").addEventListener("keyup", run);
+        document.querySelector("#js-code").addEventListener("keyup", run);
+  </script>
   </script>
   <script src="blockly.js"></script>
 </body>
