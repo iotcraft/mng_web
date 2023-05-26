@@ -103,6 +103,11 @@
       left: 170px;
       opacity: 1;
     }
+    #ff{
+      height: 45px;
+      width: 45px;
+      border-radius: 50%;
+    }
 
 
   </style>
@@ -112,7 +117,7 @@
   <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
     <div class="container-fluid mt-3">
       
-      <button class="btn btn-primary btn-dark btn-lg" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo"> Guest</button>
+      <button class="btn btn-primary btn-dark btn-lg" type="button" data-bs-toggle="offcanvas" data-bs-target="#demo">Menu</button>
     </div>
     <div class="container">
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -135,7 +140,8 @@
 
    <div class="offcanvas offcanvas-start" id="demo">
     <div class="offcanvas-header">
-        <h1  class="offcanvas-title">Settings</h1>
+      <img src="pf.jpg" alt="avatar" id="ff">
+        <h1  class="offcanvas-title">Guest</h1>
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
     </div>
     <div class="offcanvas-body">
