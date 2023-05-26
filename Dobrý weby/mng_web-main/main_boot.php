@@ -223,7 +223,7 @@ $user_id = $_SESSION['user_id'];
     <div class="offcanvas-body">
         <p> <a href="update_profile.php"> settings</a></p>
       
-        <p>  <a href="login.php">logout</a></p>
+        <p>  <a href="main_guest.php">logout</a></p>
     </div>
 
 </div>
